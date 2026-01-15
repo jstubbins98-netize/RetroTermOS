@@ -734,4 +734,4 @@ RetroTermOS is provided for educational and hobbyist use.
 
 ---
 
-*"Computing for the Home" - RetroTerm Computing Corporation*
+*"Computing for the Home" - Inteilx Software Corporation*
