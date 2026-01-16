@@ -552,6 +552,7 @@ RetroTermOS includes **Copier**, a cross-platform graphical companion applicatio
 | Pi Model Selection | Choose between Raspberry Pi 4B or Pi 5 |
 | One-Click Copy | Copies all required files with correct config.txt |
 | Image Creation | Create SD card image files (.img) on macOS/Linux |
+| Format Drive | Reformat any drive as FAT32 for Raspberry Pi |
 | Progress Tracking | Visual progress bar and status updates |
 | Show All Devices | Optional checkbox to display internal drives (with safety warning) |
 | File Integrity | Verifies file sizes after copy to prevent corruption |
@@ -607,6 +608,29 @@ By default, Copier only displays external/removable storage devices. If your SD 
 Click "Create SD Image File" to generate a flashable .img file:
 - Uses mtools (mcopy) - no root/sudo required
 - Output can be flashed with `dd`, Raspberry Pi Imager, or balenaEtcher
+
+#### Format Drive
+
+Click "Format Drive" to reformat a drive as FAT32 for Raspberry Pi:
+
+1. Select a drive from the device list
+2. Click the orange "Format Drive" button
+3. Confirm the warning dialog (data will be erased!)
+4. For internal drives, confirm a second safety dialog
+5. Wait for formatting to complete
+6. Optionally copy RetroTermOS files immediately after
+
+**Platform requirements:**
+| Platform | Requirements |
+|----------|-------------|
+| macOS | Uses diskutil (no admin required for removable drives) |
+| Linux | Requires `parted` and `dosfstools`. May need sudo for some devices |
+| Windows | May need to run Copier as Administrator |
+
+**Notes:**
+- Creates an MBR partition table with a single FAT32 partition
+- Volume label set to "RETROTERMOS"
+- After formatting, the drive will be auto-mounted (Linux) or remounted (macOS)
 
 ---
 
