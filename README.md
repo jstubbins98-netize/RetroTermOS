@@ -120,7 +120,7 @@ The script will:
 
 ### Manual Setup
 
-1. Build the kernel (see Building from Source
+1. Build the kernel (see [Building from Source](#building-from-source))
 2. Format a MicroSD card as FAT32
 3. Copy all files from the `copy/` directory to your SD card root
 4. Rename the appropriate config file:
@@ -734,4 +734,4 @@ RetroTermOS is provided for educational and hobbyist use.
 
 ---
 
-*"CommandLine for the Home (again)" - Inteilx Software Corporation*
+*"Computing for the Home" - RetroTerm Computing Corporation*
