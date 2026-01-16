@@ -120,7 +120,7 @@ The script will:
 
 ### Manual Setup
 
-1. Build the kernel (see [Building from Source](#building-from-source))
+1. Build the kernel (see Building from Source)
 2. Format a MicroSD card as FAT32
 3. Copy all files from the `copy/` directory to your SD card root
 4. Rename the appropriate config file:
@@ -553,6 +553,9 @@ RetroTermOS includes **Copier**, a cross-platform graphical companion applicatio
 | One-Click Copy | Copies all required files with correct config.txt |
 | Image Creation | Create SD card image files (.img) on macOS/Linux |
 | Progress Tracking | Visual progress bar and status updates |
+| Show All Devices | Optional checkbox to display internal drives (with safety warning) |
+| File Integrity | Verifies file sizes after copy to prevent corruption |
+| Kernel Priority | Copies kernel8.img first to prevent partial/corrupt kernels |
 
 ### Supported Platforms
 
@@ -585,8 +588,25 @@ open copier/build/Copier.app
 2. Launch Copier
 3. Select the SD card from the device list
 4. Choose your Pi model (Pi 4B or Pi 5)
-5. Click "Copy Files"
+5. Click "Copy to SD Card"
 6. Eject and insert into your Raspberry Pi
+
+### Advanced Options
+
+#### Show All Devices
+
+By default, Copier only displays external/removable storage devices. If your SD card is not detected:
+
+1. Check the "Show all devices" checkbox
+2. A warning dialog will appear - read carefully and confirm
+3. Internal drives will now appear with an `[INTERNAL]` prefix
+4. **Use extreme caution** - selecting the wrong drive can destroy data
+
+#### Image Creation (Linux/macOS)
+
+Click "Create SD Image File" to generate a flashable .img file:
+- Uses mtools (mcopy) - no root/sudo required
+- Output can be flashed with `dd`, Raspberry Pi Imager, or balenaEtcher
 
 ---
 
