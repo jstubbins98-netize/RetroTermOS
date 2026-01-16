@@ -129,16 +129,19 @@ The script will:
 5. Insert SD card into your Pi and power on
 
 **Files in the `copy/` directory after running boot.sh:**
-| File | Description |
-|------|-------------|
-| `kernel8.img` | RetroTermOS kernel |
-| `bootcode.bin` | GPU bootloader |
-| `start4.elf` | GPU firmware |
-| `fixup4.dat` | Memory configuration |
-| `bcm2711-rpi-4-b.dtb` | Device tree for Pi 4B |
-| `bcm2712-rpi-5-b.dtb` | Device tree for Pi 5 |
-| `config-pi4.txt` | Boot config for Pi 4B |
-| `config-pi5.txt` | Boot config for Pi 5 |
+
+| File | Pi 4B | Pi 5 | Description |
+|------|:-----:|:----:|-------------|
+| `kernel8.img` | Yes | Yes | RetroTermOS kernel |
+| `bootcode.bin` | Yes | No | GPU bootloader (Pi 5 uses EEPROM) |
+| `start4.elf` | Yes | No | GPU firmware (Pi 5 uses EEPROM) |
+| `fixup4.dat` | Yes | No | Memory configuration (Pi 5 uses EEPROM) |
+| `bcm2711-rpi-4-b.dtb` | Yes | No | Device tree for Pi 4B |
+| `bcm2712-rpi-5-b.dtb` | No | Yes | Device tree for Pi 5 |
+| `config-pi4.txt` | Yes | No | Boot config for Pi 4B (rename to config.txt) |
+| `config-pi5.txt` | No | Yes | Boot config for Pi 5 (rename to config.txt) |
+
+> **Note:** The Raspberry Pi 5 has its boot firmware built into the onboard EEPROM, so it doesn't need bootcode.bin, start4.elf, or fixup4.dat. The Copier GUI automatically copies only the files needed for your selected Pi model.
 
 ---
 
